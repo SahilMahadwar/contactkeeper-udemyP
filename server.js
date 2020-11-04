@@ -1,6 +1,12 @@
 const express = require("express");
-
 const app = express();
+const connectDB = require("./config/db");
+
+//Connect db
+connectDB();
+
+// Init middleware
+app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => {
   res.json({ msg: "Welcome to movie manager" });
